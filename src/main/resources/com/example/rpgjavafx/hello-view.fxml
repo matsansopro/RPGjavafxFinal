@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="442.0" fitWidth="563.0" layoutX="-2.0" layoutY="-39.0">
+            <image>
+                <Image url="@rpg/téléchargement.jpg" />
+            </image>
+        </ImageView>
+        <Button fx:id="playButton" layoutX="247.0" layoutY="217.0" mnemonicParsing="false" onAction="#onHelloButtonClick" prefHeight="25.0" prefWidth="106.0" text="Play" />
+        <Text layoutX="216.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dongeon master" textAlignment="CENTER" wrappingWidth="168.7974853515625">
+            <font>
+                <Font name="Baskerville Old Face" size="39.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>
