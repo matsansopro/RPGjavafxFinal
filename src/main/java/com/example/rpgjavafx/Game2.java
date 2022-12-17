@@ -74,11 +74,11 @@ public class Game2 {
                     heroes[i].setATK((heroes[i].getATK() + 10));
                     break;
                 case 4:
-                    if (heroes[i].getName() == "hunter") {
+                    if (heroes[i].getName().equals("hunter")) {
                         Hunter hunter = (Hunter) heroes[i];
                         hunter.setArrow(hunter.getArrow() + 5);
                     }
-                    if (heroes[i].getName() == "Mage" || heroes[i].getName() == "Healer") {
+                    if (heroes[i].getName().equals("Mage") || heroes[i].getName().equals("Healer")) {
                         Spellcaster spellcaster = (Spellcaster) heroes[i];
                         spellcaster.setmana((spellcaster.getmana() + 20));
                     } else {
@@ -130,9 +130,6 @@ public class Game2 {
                     System.out.println("Il n'y a pas assez de héros ou votre héros est mort !");
                     continue;
                 }
-                Hero hero = heroes[choixAttaque];
-                int i = (int) Math.random() * enemies.length;
-                Enemy enemy = enemies[i];
 
                 // Demande à l'utilisateur s'il souhaite attaquer ou non
                 System.out.println("Voulez-vous attaquer ? (y/n)");
@@ -142,46 +139,38 @@ public class Game2 {
 
                 // Si l'utilisateur souhaite attaquer, effectue l'attaque en utilisant un switch pour déterminer quel type d'attaque effectuer
                 if (choix.equalsIgnoreCase("y")) {
-                    switch (hero.getName()) {
+                    switch (heroes[choixAttaque].getName()) {
                         case "Aragorn":
-                            enemy.HP -= hero.ATK;
-                            break;
-                        case "Gandalf":
-                            enemy.HP -= hero.ATK;
-                            break;
                         case "Legolas":
-                            enemy.HP -= hero.ATK;
+                        case "Gandalf":
+                            enemies[roundsCompleted].HP -= heroes[choixAttaque].ATK;
                             break;
-
                         case "Arwen":
-                            enemy.HP += hero.ATK;
+                            enemies[roundsCompleted].HP += heroes[choixAttaque].ATK;
                             break;
                     }
                 }
-
-                // Attaque des ennemis
-                for (Enemy enemie : enemies) {
-                    enemy.attack(hero);
-                }
-
-
                 // Vérifie si l'ennemi est mort
                 if (enemies[roundsCompleted].HP <= 0) {
                     System.out.println("L'ennemi est mort !");
                 }
+                else{
+                    enemies[roundsCompleted].attack(heroes[choixAttaque]);
+                }
 
                 // Vérifie si le héros est mort
-                if (hero.HP <= 0) {
+                if (heroes[choixAttaque].HP <= 0) {
                     System.out.println("Le héros est mort !");
                 }
             }
+            upgrade();
         }
     }
 
-    //Création du Boss
     private void playboss() {
 
-        this.addboss(new Boss("Smaug"));
+
+        Boss finalboss = new Boss("Smaug");
     }
 
     private void addboss(Boss Boss) {
@@ -189,5 +178,6 @@ public class Game2 {
     }
 
 }
+
 
 
