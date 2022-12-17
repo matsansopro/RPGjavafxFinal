@@ -1,5 +1,7 @@
 package com.example.rpgjavafx;
 
+package com.example.rpgjavafx;
+
 abstract class Combattant {
     protected int HP;
     protected int ATK;
